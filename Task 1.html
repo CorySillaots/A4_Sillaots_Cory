@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <title>Task 1</title>
+</head>
+<body>
+    <div id="flags">
+        <img src="usa.gif" style="width: 200px" onclick="changeImg(this)" />
+        <img src="mexico.gif" style="width: 200px" onclick="changeImg(this)" />
+        <img src="vietnam.gif" style="width: 200px" onclick="changeImg(this)" />
+    </div>
+    <script>
+
+function mouseOver() {
+            var image = document.querySelector("img");
+            image.addEventListener("mouseover", event =>{
+               image.height = image.height * 2;
+            })
+        }
+        mouseOver();
+
+
+
+
+        var myImages = [
+            "usa.gif",
+            "canada.gif",
+            "jamaica.gif",
+            "mexico.gif",
+            'vietnam.gif'
+        ];
+
+        function changeImg(that) {
+            var newImgNumber = Math.round(Math.random() * 4);
+
+            while (that.src.indexOf(myImages[newImgNumber]) != -1) {
+                newImgNumber = Math.round(Math.random() * 4);
+            }
+
+            that.src = myImages[newImgNumber];
+        }
+
+   
+
+    </script>
+</body>
+</html>
