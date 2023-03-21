@@ -5,24 +5,68 @@
     <title>Task 1</title>
 </head>
 <body>
-    <div id="flags">
-        <img src="usa.gif" style="width: 200px" onclick="changeImg(this)" />
-        <img src="mexico.gif" style="width: 200px" onclick="changeImg(this)" />
-        <img src="vietnam.gif" style="width: 200px" onclick="changeImg(this)" />
+    <!--Create place holders for images-->
+    <div id="flags" class ="countries">
+        <img src="usa.gif" class="one" style="width: 200px" onclick="changeImg(this)" />
+        <img src="mexico.gif" class="two" style="width: 200px" onclick="changeImg(this)" />
+        <img src="vietnam.gif" class="three" style="width: 200px" onclick="changeImg(this)" />
     </div>
     <script>
-
-function mouseOver() {
-            var image = document.querySelector("img");
+        //Create function to enlarge images on mouseOver
+        function mouseOver() {
+            var image = document.querySelector(".one");
             image.addEventListener("mouseover", event =>{
-               image.height = image.height * 2;
+                image.style.height = image.height * 2;
+                image.style.width = '400px';
             })
         }
         mouseOver();
-
-
-
-
+        //Create function to return image to original size on mouseOut
+        function mouseOff() {
+            var image = document.querySelector(".one");
+            image.addEventListener("mouseout", event =>{
+                image.style.height = '112';
+                image.style.width = '200px';
+            })
+        }
+        mouseOff();
+        //Create function to enlarge images on mouseOver
+        function mouseOverTwo() {
+            var image = document.querySelector(".two");
+            image.addEventListener("mouseover", event =>{
+                image.style.height = image.height * 2;
+                image.style.width = '400px';
+            })
+        }
+        mouseOverTwo();
+        //Create function to return image to original size on mouseOut
+        function mouseOffTwo() {
+            var image = document.querySelector(".two");
+            image.addEventListener("mouseout", event =>{
+                image.style.height = '112';
+                image.style.width = '200px';
+            })
+        }
+        mouseOffTwo();
+        //Create function to enlarge images on mouseOver
+        function mouseOverThree() {
+            var image = document.querySelector(".three");
+            image.addEventListener("mouseover", event =>{
+                image.style.height = image.height * 2;
+                image.style.width = '400px';
+            })
+        }
+        mouseOverThree();
+        //Create function to return image to original size on mouseOut
+        function mouseOffThree() {
+            var image = document.querySelector(".three");
+            image.addEventListener("mouseout", event =>{
+                image.style.height = '112';
+                image.style.width = '200px';
+            })
+        }
+        mouseOffThree();
+        //Array to hold images
         var myImages = [
             "usa.gif",
             "canada.gif",
@@ -30,19 +74,17 @@ function mouseOver() {
             "mexico.gif",
             'vietnam.gif'
         ];
-
+        // picks a random number between 0 & 5 and rounds down to nearest integer
         function changeImg(that) {
             var newImgNumber = Math.round(Math.random() * 4);
-
+        //  takes the random number generated and applies it to an index position in the array
             while (that.src.indexOf(myImages[newImgNumber]) != -1) {
                 newImgNumber = Math.round(Math.random() * 4);
             }
 
             that.src = myImages[newImgNumber];
         }
-
-   
-
     </script>
 </body>
 </html>
+
